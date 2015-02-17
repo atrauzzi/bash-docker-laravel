@@ -10,4 +10,4 @@ cd $START_PWD
 
 docker stop laravel-php-artisan &> /dev/null
 docker rm laravel-php-artisan &> /dev/null
-docker run -i -t --volume=$HOME_DIR/.ssh:/root/.host-ssh --volume=$CONTEXT_ROOT/laravel:/var/www --name=laravel-php-artisan laravel-php-cli php artisan "$@"
+docker run -i -t --volume=$HOME_DIR/.ssh:/root/.host-ssh --volume=$CONTEXT_ROOT/laravel:/var/www --link=laravel-postgres:postgres --link=laravel-redis:redis --name=laravel-php-artisan laravel-php-cli php artisan "$@"
