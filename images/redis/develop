@@ -1,0 +1,14 @@
+#!/bin/bash
+
+START_PWD=`pwd -P`
+cd `dirname $BASH_SOURCE`/../..
+CONTEXT_ROOT=`pwd -P`
+cd ~
+HOME_DIR=`pwd -P`
+
+cd $CONTEXT_ROOT
+docker stop laravel-redis &> /dev/null
+docker rm laravel-redis &> /dev/null
+docker run -d --publish=6379:6379 --name=laravel-redis --volumes-from=laravel-data laravel-redis
+
+cd $START_PWD

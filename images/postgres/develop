@@ -1,0 +1,14 @@
+#!/bin/bash
+
+START_PWD=`pwd -P`
+cd `dirname $BASH_SOURCE`/../..
+CONTEXT_ROOT=`pwd -P`
+cd ~
+HOME_DIR=`pwd -P`
+
+cd $CONTEXT_ROOT
+docker stop laravel-postgres &> /dev/null
+docker rm laravel-postgres &> /dev/null
+docker run -d --publish=5432:5432 --name=laravel-postgres --volumes-from=laravel-data laravel-postgres
+
+cd $START_PWD

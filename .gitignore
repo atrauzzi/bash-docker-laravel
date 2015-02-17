@@ -1,0 +1,5 @@
+.idea
+nbproject
+.DS_Store
+Thumbs.db
+.env

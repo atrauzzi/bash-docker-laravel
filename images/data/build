@@ -1,0 +1,19 @@
+#!/bin/bash
+
+START_PWD=`pwd -P`
+cd `dirname $BASH_SOURCE`/../..
+CONTEXT_ROOT=`pwd -P`
+cd ~
+HOME_DIR=`pwd -P`
+
+echo
+echo ...data
+echo
+
+cd $CONTEXT_ROOT
+docker stop laravel-data &> /dev/null
+docker rm laravel-data &> /dev/null
+docker rmi laravel-data &> /dev/null
+docker build --tag="laravel-data" --file="./images/data/Dockerfile" $CONTEXT_ROOT
+
+cd $START_PWD

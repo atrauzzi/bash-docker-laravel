@@ -1,0 +1,5 @@
+#!/bin/bash
+
+#docker stop laravel-data &> /dev/null
+#docker rm laravel-data &> /dev/null
+docker run -d --name=laravel-data laravel-data

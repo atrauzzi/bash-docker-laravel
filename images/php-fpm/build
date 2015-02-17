@@ -1,0 +1,20 @@
+#!/bin/bash
+
+START_PWD=`pwd -P`
+cd `dirname $BASH_SOURCE`/../..
+CONTEXT_ROOT=`pwd -P`
+cd ~
+HOME_DIR=`pwd -P`
+
+echo
+echo ...php-fpm
+echo
+
+cd $CONTEXT_ROOT
+
+docker stop laravel-php-fpm &> /dev/null
+docker rm laravel-php-fpm &> /dev/null
+docker rmi laravel-php-fpm &> /dev/null
+docker build --tag="laravel-php-fpm" --file="./images/php-fpm/Dockerfile" $CONTEXT_ROOT
+
+cd $START_PWD
