@@ -14,8 +14,8 @@ the publicly hosted directory of our project.
 
 One detail that seems to be working so far is that I don't copy the entire Laravel project into the 
 container.  Either when I'm `ADD`ing from the Dockerfile, or when I bind-mount to the host filesystem.  Instead, 
-I'm only doing the public directory.  This ensures that the server capable of serving static content never has 
-access to `index.php` for bootstrapping via php-fpm, as well as all static assets.
+I'm only doing the public directory.  This ensures that the server capable of serving static content only has 
+access to `index.php` for bootstrapping via php-fpm.
 
 ## Dockerfile
 Inside this Dockerfile, I copy in configuration, the public directory and configure the vhost.
