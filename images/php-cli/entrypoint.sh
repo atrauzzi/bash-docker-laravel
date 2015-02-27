@@ -1,6 +1,7 @@
 #!/bin/sh
 
 echo "Configuring environment for `whoami`..."
+export APP_DEBUG=$APP_DEBUG
 export DB_HOST=$POSTGRES_PORT_5432_TCP_ADDR
 export POSTGRES_PORT=$POSTGRES_PORT_5432_TCP_PORT
 export DB_DATABASE=$POSTGRES_DATABASE
