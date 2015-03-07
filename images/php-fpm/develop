@@ -9,6 +9,6 @@ HOME_DIR=`pwd -P`
 cd $CONTEXT_ROOT
 docker stop laravel-php-fpm &> /dev/null
 docker rm laravel-php-fpm &> /dev/null
-docker run -d --env="APP_DEBUG=true" --publish=9000:9000 --volume=$CONTEXT_ROOT/laravel:/var/www --name=laravel-php-fpm --volumes-from=laravel-data --link=laravel-postgres:postgres --link=laravel-redis:redis laravel-php-fpm
+docker run -d --env="APP_DEBUG=true" --env="CACHE_DRIVER=redis" --publish=9000:9000 --volume=$CONTEXT_ROOT/laravel:/var/www --name=laravel-php-fpm --volumes-from=laravel-data --link=laravel-postgres:postgres --link=laravel-redis:redis laravel-php-fpm
 
 cd $START_PWD
