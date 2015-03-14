@@ -1,5 +1,5 @@
 FROM ubuntu
-MAINTAINER "Alexander Trauzzi" <alexander@gmail.com>
+MAINTAINER "Alexander Trauzzi" <atrauzzi@gmail.com>
 
 WORKDIR /tmp
 
