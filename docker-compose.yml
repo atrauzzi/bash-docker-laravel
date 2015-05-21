@@ -9,6 +9,8 @@ postgres:
         - "5432"
     ports:
         - "5432:5432"
+    environment:
+        - PGDATA=/data/postgresql/main
 
 php:
     build: image/php-fpm
