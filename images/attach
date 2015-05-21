@@ -1,9 +1,0 @@
-#!/bin/bash
-
-START_PWD=`pwd -P`
-cd `dirname $BASH_SOURCE`/../..
-CONTEXT_ROOT=`pwd -P`
-cd ~
-HOME_DIR=`pwd -P`
-
-docker exec -i -t $1 bash

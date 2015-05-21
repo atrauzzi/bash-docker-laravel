@@ -1,17 +1,2 @@
-#!/bin/bash
-
-START_PWD=`pwd -P`
-cd `dirname $BASH_SOURCE`
-CONTEXT_ROOT=`pwd -P`
-cd ~
-HOME_DIR=`pwd -P`
-
-cd $START_PWD
-
-docker stop laravel-php-artisan &> /dev/null
-docker rm laravel-php-artisan &> /dev/null
-
-docker run -i -t --env="APP_DEBUG=true" --env="POSTGRES_USER=postgres" --volume=$HOME_DIR/.ssh:/root/.host-ssh --volume=$CONTEXT_ROOT/laravel:/var/www --link=laravel-postgres:postgres --link=laravel-redis:redis --name=laravel-php-artisan laravel-php-cli php artisan "$@"
-
-docker stop laravel-php-artisan &> /dev/null
-docker rm laravel-php-artisan &> /dev/null
+#!/bin/sh
+docker-compose run --rm cli php artisan "$@"
