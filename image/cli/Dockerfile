@@ -18,6 +18,8 @@ RUN apt-get update -y && \
 RUN php5enmod mcrypt
 
 COPY php.ini /etc/php5/fpm/php.ini
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod u=rwx /entrypoint.sh
 
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
@@ -25,4 +27,4 @@ RUN mv composer.phar /usr/local/bin/composer
 WORKDIR /var/www
 
 EXPOSE 9000
-CMD ["php", "-a"]
+ENTRYPOINT ["/entrypoint.sh"]
