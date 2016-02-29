@@ -1,6 +1,6 @@
 # Docker Laravel
 
-Welcome to an example for getting up and running with Docker and Laravel using bash scripts!
+Welcome to my demo for getting up and running with Docker and Laravel using bash scripts.  This repository is superceded by the [laravel-drydock](http://github.com/atrauzzi/laravel-drydock) project which features a more robust and production ready setup.  It does however still serve as a nice teaching tool for the utility offered by docker compose!
 
 This project is part studying, part teaching, part experimentation and possibly even good enough to use for real projects!
 
