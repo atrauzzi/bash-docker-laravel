@@ -1,6 +1,6 @@
 # Docker Laravel
 
-Welcome to my base template for getting up and running with Docker and Laravel!
+Welcome to an example for getting up and running with Docker and Laravel using bash scripts!
 
 This project is part studying, part teaching, part experimentation and possibly even good enough to use for real projects!
 
@@ -35,6 +35,6 @@ in action.  If you are running on Linux, everything should run as local services
 
 ## Meta
 
-This project is open source and I am highly interested in receiving suggestions and advice from the community.
+This project is open source, but also outdated.  Be sure to check out http://github.com/atrauzzi/laravel-drydock!
 
 Docker Laravel is created and maintained by [Alexander Trauzzi](http://profiles.google.com/atrauzzi).
