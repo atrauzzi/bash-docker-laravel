@@ -1,0 +1,57 @@
+data:
+    build: image/data
+    volumes:
+        - /data
+
+postgres:
+    build: image/postgres
+    expose:
+        - "5432"
+    ports:
+        - "5432:5432"
+    environment:
+        - PGDATA=/data/postgresql/main
+
+php:
+    build: image/php-fpm
+    volumes:
+        - laravel:/var/www
+    volumes_from:
+        - data
+    expose:
+        - "9000"
+    links:
+        - postgres:db
+        - redis
+    environment:
+        - APP_DEBUG=true
+        - CACHE_DRIVER=redis
+
+cli:
+    build: image/cli
+    volumes_from:
+        - data
+    expose:
+        - "9000"
+    links:
+        - postgres:db
+
+nginx:
+    build: image/nginx
+    volumes:
+        - laravel/public:/var/www/public
+    volumes_from:
+        - data
+    ports:
+        - "8080:8080"
+    links:
+        - php
+
+redis:
+    build: image/redis
+    volumes_from:
+        - data
+    expose:
+        - "6379"
+    ports:
+        - "6379:6379"

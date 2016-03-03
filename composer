@@ -1,17 +1,2 @@
-#!/bin/bash
-
-START_PWD=`pwd -P`
-cd `dirname $BASH_SOURCE`
-CONTEXT_ROOT=`pwd -P`
-cd ~
-HOME_DIR=`pwd -P`
-
-cd $START_PWD
-
-docker stop laravel-php-composer &> /dev/null
-docker rm laravel-php-composer &> /dev/null
-
-docker run -i -t --env="UID=$UID" --env="USER=$USER" --volume=$HOME_DIR/.ssh:/home/$USER/.host-ssh --volume=$CONTEXT_ROOT/laravel:/var/www --name=laravel-php-composer laravel-php-cli "/composer.phar "$@""
-
-docker stop laravel-php-composer &> /dev/null
-docker rm laravel-php-composer &> /dev/null
+#!/bin/sh
+docker-compose run --rm cli composer "$@"
